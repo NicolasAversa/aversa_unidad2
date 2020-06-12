@@ -1,0 +1,29 @@
+<div
+  class="card mb-3"
+  style="max-width: 540px;"
+  *ngFor="let product of products; let i = index"
+>
+  <div class="row no-gutters">
+    <div class="col-sm-4">
+      <img [src]="product.imgUrl" class="card-img" alt="" />
+    </div>
+    <div class="col-sm-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <h4 class="card-title">
+          {{ product.price | currency: "USD":"symbol":"1.1-1" }}
+        </h4>
+        <p class="card-text">
+          {{ product.description }}
+        </p>
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="handleDelete(i)"
+        >
+          Eliminar elemento
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
